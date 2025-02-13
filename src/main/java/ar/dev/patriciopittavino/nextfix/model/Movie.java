@@ -1,10 +1,7 @@
 package ar.dev.patriciopittavino.nextfix.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -12,19 +9,20 @@ import java.util.List;
 
 @Entity
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Pelicula {
+public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private String titulo;
+    private String title;
 
-    private String genero;
+    private String genre;
 
-    private LocalDate fechaEstreno;
+    private LocalDate releaseDate;
 
     @ManyToOne
     @JoinColumn(name = "director_id")
@@ -33,10 +31,11 @@ public class Pelicula {
 
     @ManyToMany
     @JoinTable(
-            name = "pelicula_plataforma",
-            joinColumns = @JoinColumn(name = "pelicula_id"),
-            inverseJoinColumns = @JoinColumn(name = "plataforma_id")
+            name = "movie_platform",
+            joinColumns = @JoinColumn(name = "movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "platform_id")
     )
     @ToString.Exclude
-    private List<Plataforma> plataformasDisponibles = new ArrayList<>();
+    @Builder.Default
+    private List<Platform> avalaiblePlatforms = new ArrayList<>();
 }

@@ -1,6 +1,5 @@
 package ar.dev.patriciopittavino.nextfix;
 
-import ar.dev.patriciopittavino.nextfix.model.Pelicula;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 

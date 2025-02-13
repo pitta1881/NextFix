@@ -13,20 +13,20 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Plataforma {
+public class Platform {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private String nombre;
+    private String name;
 
-    private BigDecimal precio;
+    private BigDecimal price;
 
-    private String moneda;  // ars, usd, eur, etc.
+    private String currency;  // ars, usd, eur, etc.
 
-    private String enlace;
+    private String url;
 
-    @ManyToMany(mappedBy = "plataformasDisponibles", fetch = FetchType.EAGER)
-    private List<Pelicula> peliculasDisponibles = new ArrayList<>();
+    @ManyToMany(mappedBy = "avalaiblePlatforms", fetch = FetchType.EAGER)
+    private List<Movie> avalaibleMovies = new ArrayList<>();
 }

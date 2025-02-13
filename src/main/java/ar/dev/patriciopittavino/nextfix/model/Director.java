@@ -19,12 +19,12 @@ public class Director {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private String nacionalidad;
+    private String nacionality;
 
-    private LocalDate fechaNacimiento;
+    private LocalDate birthdate;
 
     private String email;
 
     @OneToMany(mappedBy = "director", fetch = FetchType.EAGER)
-    private List<Pelicula> peliculasDirigidas = new ArrayList<>();
+    private List<Movie> directedMovies = new ArrayList<>();
 }
