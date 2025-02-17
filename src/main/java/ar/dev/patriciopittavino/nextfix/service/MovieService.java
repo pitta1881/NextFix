@@ -29,7 +29,10 @@ public class MovieService {
 
     public Movie saveMovie(Movie movie, Long idDirector, List<Long> idPlatforms) {
         movie.setDirector(directorRepository.findById(idDirector).orElseThrow(() -> new RuntimeException("Director not found")));
-        movie.setAvalaiblePlatforms(platformRepository.findAllById(idPlatforms));
+        if (idPlatforms != null) {
+            movie.setAvalaiblePlatforms(platformRepository.findAllById(idPlatforms));
+        }
+
         return movieRepository.save(movie);
     }
 
