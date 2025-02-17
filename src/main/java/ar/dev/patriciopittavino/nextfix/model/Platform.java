@@ -1,6 +1,9 @@
 package ar.dev.patriciopittavino.nextfix.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,12 +22,17 @@ public class Platform {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @NotBlank(message = "Name is mandatory")
     private String name;
 
+    @NotNull(message = "Price is mandatory")
     private BigDecimal price;
 
+    @NotBlank(message = "Currency is mandatory")
     private String currency;  // ars, usd, eur, etc.
 
+    @NotBlank(message = "URL is mandatory")
+    @Pattern(regexp = "^(http|https)://.*$", message = "Invalid URL format")
     private String url;
 
     @ManyToMany(mappedBy = "avalaiblePlatforms", fetch = FetchType.EAGER)

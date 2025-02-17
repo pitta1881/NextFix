@@ -1,6 +1,8 @@
 package ar.dev.patriciopittavino.nextfix.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -18,15 +20,19 @@ public class Movie {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @NotBlank(message = "Title is mandatory")
     private String title;
 
+    @NotBlank(message = "Genre is mandatory")
     private String genre;
 
+    @NotNull(message = "Release Date is mandatory")
     private LocalDate releaseDate;
 
     @ManyToOne
     @JoinColumn(name = "director_id")
     @ToString.Exclude
+    @NotNull(message = "Director is mandatory")
     private Director director;
 
     @ManyToMany
