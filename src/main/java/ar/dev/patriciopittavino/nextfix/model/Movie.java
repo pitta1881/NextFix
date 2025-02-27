@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
+@Data   //toString, equal, hashcode, getters, setters
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
