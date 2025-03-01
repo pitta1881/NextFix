@@ -17,7 +17,7 @@
         <th>Release Date</th>
         <th>Genre</th>
         <th>Available Platforms</th>
-        <th>Actions</th>
+        <th sec:authorize="hasAuthority('ROLE_ADMIN')">Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -34,7 +34,7 @@
             </label>
         </td>
     <!--  Actions Buttons-->
-        <td>
+        <td sec:authorize="hasAuthority('ROLE_ADMIN')">
             <button th:onclick="'deleteMovieConfirmation('+${movie.id}+')'" class="btn btn-danger">Delete</button>
             <a th:href="@{/movies/edit/{id}(id=${movie.id})}" class="btn btn-warning">Edit</a>
         </td>

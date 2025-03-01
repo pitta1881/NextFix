@@ -20,6 +20,10 @@
                     <a class="nav-link" th:href="@{/logout}">Logout</a>
                 </li>
             </ul>
+            <div class="navbar-text ml-auto">
+                <div sec:authentication="principal.username"></div>
+                <div sec:authentication="principal.authorities"></div>
+            </div>
         </div>
     </nav>
 </header>
