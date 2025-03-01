@@ -31,7 +31,7 @@ public class MovieServiceTest {
     @BeforeEach
     void setup() {
         Director director = new Director();
-        director.setNacionality("Argentina");
+        director.setNationality("Argentina");
         director.setEmail("director1@mail.com");
         director.setBirthdate(LocalDate.of(1980, 1, 1));
         savedDirector = directorService.saveDirector(director);

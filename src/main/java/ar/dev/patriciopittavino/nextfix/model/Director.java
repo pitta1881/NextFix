@@ -23,9 +23,9 @@ public class Director {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @NotBlank(message = "Nacionality is mandatory")
-    @Size(min = 3, max = 50, message = "Nacionality must be between 3 and 50 characters")
-    private String nacionality;
+    @NotBlank(message = "Nationality is mandatory")
+    @Size(min = 3, max = 50, message = "Nationality must be between 3 and 50 characters")
+    private String nationality;
 
     @NotNull(message = "Birthdate is mandatory")
     private LocalDate birthdate;

@@ -22,7 +22,7 @@ class DirectorServiceTest {
     @BeforeEach
     void setup() {
         Director director = new Director();
-        director.setNacionality("Argentina");
+        director.setNationality("Argentina");
         director.setEmail("director1@mail.com");
         director.setBirthdate(LocalDate.of(1980, 1, 1));
         savedDirector = directorService.saveDirector(director);
@@ -32,7 +32,7 @@ class DirectorServiceTest {
     @Order(1)
     void saveDirector() {
         assertNotNull(savedDirector.getId());
-        assertEquals("Argentina", savedDirector.getNacionality());
+        assertEquals("Argentina", savedDirector.getNationality());
         assertEquals("director1@mail.com", savedDirector.getEmail());
         assertEquals(LocalDate.of(1980, 1, 1), savedDirector.getBirthdate());
     }
@@ -42,7 +42,7 @@ class DirectorServiceTest {
     void getDirectorById() {
         Director director = directorService.getDirectorById(savedDirector.getId());
         assertEquals(savedDirector.getId(), director.getId());
-        assertEquals(savedDirector.getNacionality(), director.getNacionality());
+        assertEquals(savedDirector.getNationality(), director.getNationality());
         assertEquals(savedDirector.getEmail(), director.getEmail());
         assertEquals(savedDirector.getBirthdate(), director.getBirthdate());
     }

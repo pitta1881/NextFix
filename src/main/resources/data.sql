@@ -1,4 +1,4 @@
-INSERT INTO Director (nacionality, birthdate, email)
+INSERT INTO Director (nationality, birthdate, email)
 VALUES
     ('argentina', '1990-05-14', 'oderay@mail.com'),
     ('mexico', '1985-10-23', 'juanperez@mail.com'),
@@ -56,12 +56,12 @@ VALUES
 
 INSERT INTO User_custom (username, password, name, surname, role, director_id)
 VALUES
-    ( 'director_oderay', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'Ode', 'Pérez','ROL_DIRECTOR', 1),
-    ( 'director_patricio', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'Patricio', 'Gomez','ROL_DIRECTOR', 2),
-    ( 'director_giancarlo', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'Giancarlo', 'Villalba','ROL_DIRECTOR', 3),
-    ( 'director_clairedupont', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'Ode', 'Pérez','ROL_DIRECTOR', 4),
-    ( 'director_emilybrown', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'Patricio', 'Gomez','ROL_DIRECTOR', 5),
-    ( 'director_2', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'director_3', 'Villalba','ROL_DIRECTOR', 6),
-    ( 'director_3', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'director_4', 'Villalba','ROL_DIRECTOR', 7),
-    ( 'director_4', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'director_5', 'Villalba','ROL_DIRECTOR', 8),
-    ( 'director_5', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'director_6', 'Villalba','ROL_DIRECTOR', 9);
+    ( 'director_oderay', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'Ode', 'Pérez','ROLE_DIRECTOR', 1),
+    ( 'director_patricio', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'Patricio', 'Gomez','ROLE_DIRECTOR', 2),
+    ( 'director_giancarlo', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'Giancarlo', 'Villalba','ROLE_DIRECTOR', 3),
+    ( 'director_clairedupont', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'Ode', 'Pérez','ROLE_DIRECTOR', 4),
+    ( 'director_emilybrown', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'Patricio', 'Gomez','ROLE_DIRECTOR', 5),
+    ( 'director_2', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'director_3', 'Villalba','ROLE_DIRECTOR', 6),
+    ( 'director_3', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'director_4', 'Villalba','ROLE_DIRECTOR', 7),
+    ( 'director_4', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'director_5', 'Villalba','ROLE_DIRECTOR', 8),
+    ( 'director_5', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'director_6', 'Villalba','ROLE_DIRECTOR', 9);
