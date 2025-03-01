@@ -89,4 +89,8 @@ public class UserCustomService implements UserDetailsService {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
+    public List<UserCustom> listUsersRegisteredWithDirectors() {
+        return userRepository.findByDirectorIsNotNull();
+    }
+
 }

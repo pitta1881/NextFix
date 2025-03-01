@@ -7,13 +7,17 @@
 <header th:replace="~{fragments/header :: header}"></header>
 
 <h1>Movies List</h1>
+<a th:href="@{/movies/new}" class="btn btn-primary">Add New Movie</a>
+
 <table class="table table-striped">
     <thead class="thead-dark">
     <tr class="table-primary">
         <th>Id</th>
-        <th>Birthdate</th>
-        <th>Email</th>
-        <th>Nacionality</th>
+        <th>Title</th>
+        <th>Release Date</th>
+        <th>Genre</th>
+        <th>Available Platforms</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -28,9 +32,33 @@
                     <option th:each="platform : ${movie.getAvalaiblePlatforms()}" th:value="${platform.id}" th:text="${platform.name}"></option>
                 </select>
             </label>
+        </td>
+    <!--  Actions Buttons-->
+        <td>
+            <button th:onclick="'deleteMovieConfirmation('+${movie.id}+')'" class="btn btn-danger">Delete</button>
+            <a th:href="@{/movies/edit/{id}(id=${movie.id})}" class="btn btn-warning">Edit</a>
+        </td>
     </tr>
     </tbody>
 </table>
+
+<script>
+    function deleteMovieConfirmation(id) {
+        Swal.fire({
+            title: 'Are you sure you want to delete this movie?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Delete',
+            cancelButtonText: 'Cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                location.href = '/movies/delete/' + id;
+            }
+        });
+    }
+</script>
 
 <a th:href="@{/}" class="btn btn-primary">Back to Home</a>
 <footer th:insert="~{fragments/footer :: footer}"></footer>

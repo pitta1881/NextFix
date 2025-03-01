@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="~{fragments/head :: head}"></head>
+
+<body class="container">
+<header th:replace="~{fragments/header :: header}"></header>
+
+<h1>Add Movie</h1>
+
+<form th:action="@{/movies}" method="post" class="form">
+  <div class="form-group">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" class="form-control" required>
+  </div>
+
+  <div class="form-group">
+    <label for="genre">Genre:</label>
+    <input type="text" id="genre" name="genre" class="form-control" required>
+  </div>
+
+  <div class="form-group">
+    <label for="releaseDate">Release Date:</label>
+    <input type="date" id="releaseDate" name="releaseDate" class="form-control" min="1970-01-01" max="3000-12-31" required>
+  </div>
+
+  <!-- Lista desplegable para seleccionar el director -->
+  <div class="form-group">
+    <label for="directorId">Director:</label>
+    <select class="form-control" id="directorId" name="directorId" required>
+      <option th:each="userDirector : ${usersWithDirector}" th:value="${userDirector.director.id}" th:text="${userDirector.name +' '+userDirector.surname}"></option>
+    </select>
+  </div>
+
+  <!-- Lista desplegable para seleccionar los plataformas-->
+  <div class="form-group">
+    <label for="platformIds">Platforms:</label>
+    <select id="platformIds" name="platformIds" class="form-control" multiple>
+      <option th:each="platform : ${platforms}" th:value="${platform.id}" th:text="${platform.name}"></option>
+    </select>
+  </div>
+
+  <br>
+
+  <button type="submit" class="btn btn-primary">Save Movie</button>
+</form>
+
+<a th:href="@{/}" class="btn btn-primary">Back to Home</a>
+<footer th:insert="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

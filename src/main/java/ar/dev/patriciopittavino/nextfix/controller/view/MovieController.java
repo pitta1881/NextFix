@@ -4,6 +4,7 @@ import ar.dev.patriciopittavino.nextfix.model.Movie;
 import ar.dev.patriciopittavino.nextfix.service.DirectorService;
 import ar.dev.patriciopittavino.nextfix.service.MovieService;
 import ar.dev.patriciopittavino.nextfix.service.PlatformService;
+import ar.dev.patriciopittavino.nextfix.service.UserCustomService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,7 @@ public class MovieController {
     private final PlatformService platformService;
     private final MovieService movieService;
     private final DirectorService directorService;
+    private final UserCustomService userService;
 
     @GetMapping("/movies")
     public String getMovies(Model model) {
@@ -27,10 +29,10 @@ public class MovieController {
 
     @GetMapping("/movies/new")
     public String newPlatform(Model model) {
-        model.addAttribute("director", directorService.getAllDirectors());
-        model.addAttribute("platform", platformService.getAllPlatforms());
+        model.addAttribute("usersWithDirector", userService.listUsersRegisteredWithDirectors());
+        model.addAttribute("platforms", platformService.getAllPlatforms());
         model.addAttribute("movie", new Movie());
-        return "movies/movieForm";
+        return "movies/addMovieForm";
     }
 
     @PostMapping("/movies")
@@ -41,10 +43,10 @@ public class MovieController {
 
     @GetMapping("/movies/edit/{id}")
     public String editMovie(@PathVariable Long id, Model model) {
-        model.addAttribute("director", directorService.getAllDirectors());
-        model.addAttribute("platform", platformService.getAllPlatforms());
+        model.addAttribute("usersWithDirector", userService.listUsersRegisteredWithDirectors());
+        model.addAttribute("platforms", platformService.getAllPlatforms());
         model.addAttribute("movie", movieService.getMovieById(id));
-        return "movies/movieForm";
+        return "movies/editMovieForm";
     }
 
     @PostMapping("/movies/{id}")
@@ -54,7 +56,7 @@ public class MovieController {
     }
 
 //    no se puede hacer DeleteMapping en una view, solo en rest
-    @GetMapping("/movies/{id}")
+    @GetMapping("/movies/delete/{id}")
     public String deleteMovie(@PathVariable Long id) {
         movieService.deleteMovie(id);
         return "redirect:/movies";

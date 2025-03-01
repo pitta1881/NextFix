@@ -37,6 +37,6 @@ public class Director {
     @OneToMany(mappedBy = "director", fetch = FetchType.EAGER)
     private List<Movie> directedMovies = new ArrayList<>();
 
-    @OneToOne(mappedBy = "director", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "director", cascade = CascadeType.ALL)
     private UserCustom user;
 }

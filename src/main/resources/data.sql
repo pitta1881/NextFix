@@ -44,3 +44,24 @@ VALUES
     (4, 4),
     (5, 5),
     (6, 6);
+
+-- pass admin: Patoter0
+-- pass los demas: Patoter1
+INSERT INTO User_custom (username, password, name, surname, role)
+VALUES
+    ('admin', '{bcrypt}$2a$12$0wqomujgpaDvA6YYNNm9MehQn5ukkOSGmRivAEhuLCnO2koEsq5.K', 'admin', 'Admin', 'ROLE_ADMIN'),
+    ('user1', '{bcrypt}$2a$12$Arh2WtJYxwhWpHzHt2Gq6e1gpflWE6sHDukIPp/dl8yi3BZyYdECa', 'User1Name', 'User1Surname', 'ROLE_READ'),
+    ('user2', '{bcrypt}$2a$12$Arh2WtJYxwhWpHzHt2Gq6e1gpflWE6sHDukIPp/dl8yi3BZyYdECa', 'User2Name', 'User2Surname', 'ROLE_READ'),
+    ('director1', '{bcrypt}$2a$12$Arh2WtJYxwhWpHzHt2Gq6e1gpflWE6sHDukIPp/dl8yi3BZyYdECa', 'Director1Name', 'Director1Surname', 'ROLE_DIRECTOR');
+
+INSERT INTO User_custom (username, password, name, surname, role, director_id)
+VALUES
+    ( 'director_oderay', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'Ode', 'Pérez','ROL_DIRECTOR', 1),
+    ( 'director_patricio', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'Patricio', 'Gomez','ROL_DIRECTOR', 2),
+    ( 'director_giancarlo', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'Giancarlo', 'Villalba','ROL_DIRECTOR', 3),
+    ( 'director_clairedupont', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'Ode', 'Pérez','ROL_DIRECTOR', 4),
+    ( 'director_emilybrown', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'Patricio', 'Gomez','ROL_DIRECTOR', 5),
+    ( 'director_2', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'director_3', 'Villalba','ROL_DIRECTOR', 6),
+    ( 'director_3', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'director_4', 'Villalba','ROL_DIRECTOR', 7),
+    ( 'director_4', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'director_5', 'Villalba','ROL_DIRECTOR', 8),
+    ( 'director_5', '{bcrypt}$2a$12$eyd1Muaz4ZxxZvC4nd556Ou1iaqfA/RReZagH4PpawE7Yazf9tQi6', 'director_6', 'Villalba','ROL_DIRECTOR', 9);
