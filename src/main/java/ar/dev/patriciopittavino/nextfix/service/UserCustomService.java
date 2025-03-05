@@ -81,7 +81,7 @@ public class UserCustomService implements UserDetailsService {
         return userRepository.findById(id).orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 
-    public UserCustom getUserByDirectorId(Director director) {
+    public UserCustom getUserByDirector(Director director) {
         return userRepository.findByDirector(director);
     }
 

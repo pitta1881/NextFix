@@ -16,6 +16,7 @@
         <th>Title</th>
         <th>Release Date</th>
         <th>Genre</th>
+        <th>Director</th>
         <th>Available Platforms</th>
         <th sec:authorize="hasAuthority('ROLE_ADMIN')">Actions</th>
     </tr>
@@ -26,6 +27,7 @@
         <td th:text="${movie.title}"></td>
         <td th:text="${movie.releaseDate}"></td>
         <td th:text="${movie.genre}"></td>
+        <td th:text="${(userService.getUserByDirector(movie.director)?.name ?: '') + ' ' + (userService.getUserByDirector(movie.director)?.surname ?: '')}"></td>
         <td>
             <label>
                 <select disabled size="5" style="max-height: 75px; overflow-y: auto;">

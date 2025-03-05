@@ -11,6 +11,8 @@
     <thead class="thead-dark">
     <tr class="table-primary">
         <th>Id</th>
+        <th>Name</th>
+        <th>Surname</th>
         <th>Birthdate</th>
         <th>Email</th>
         <th>Nationality</th>
@@ -20,6 +22,8 @@
     <tbody>
     <tr th:each="director : ${directors}">
         <td th:text="${director.id}"></td>
+        <td th:text="${userService.getUserByDirector(director)?.name ?: 'Name not found'}"></td>
+        <td th:text="${userService.getUserByDirector(director)?.surname ?: 'Surname not found'}"></td>
         <td th:text="${director.birthdate}"></td>
         <td th:text="${director.email}"></td>
         <td th:text="${director.nationality}"></td>
