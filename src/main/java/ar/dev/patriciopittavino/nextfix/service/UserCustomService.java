@@ -89,8 +89,38 @@ public class UserCustomService implements UserDetailsService {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
+    public List<UserCustom> listUsersRegistered() {
+        return userRepository.findAll();
+    }
+
     public List<UserCustom> listUsersRegisteredWithDirectors() {
         return userRepository.findByDirectorIsNotNull();
     }
+
+    public void updateUserRole(Long id, String newRole) {
+        UserCustom user = getUserById(id);
+
+        if (user == null) {
+            throw new UsernameNotFoundException("updateUserRole: User not found");
+        }
+
+        user.setRole(newRole);
+        //usuario.setDirector(null); TODO ver
+
+        userRepository.save(user);
+    }
+
+    public void updateUserRoleDirector(Long id, Director director) {
+        UserCustom user = getUserById(id);
+
+        if (user == null) {
+            throw new UsernameNotFoundException("updateUserRoleDirector: User not found");
+        }
+
+        user.setRole(ROLE_DIRECTOR);
+        user.setDirector(director);
+        userRepository.save(user);
+    }
+
 
 }

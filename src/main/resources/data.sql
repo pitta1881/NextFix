@@ -28,6 +28,8 @@ VALUES
     ('El Padrino', 'Crimen', '1972-03-24', 1),
     ('La Guerra de las Galaxias', 'Ciencia Ficción', '1977-05-25', 2),
     ('Titanic', 'Romántico', '1997-12-19', 3),
+    ('Rocop', 'Acción', '1997-12-19', 3),
+    ('Sonic 3', 'Animada', '1997-12-19', 3),
     ('Jurassic Park', 'Aventura', '1993-06-11',3),
     ('El Señor de los Anillos: La Comunidad del Anillo', 'Fantástico', '2001-12-19',4),
     ('Avengers: Endgame', 'Acción', '2019-04-26',4),
@@ -40,10 +42,13 @@ INSERT INTO Movie_Platform (movie_id, platform_id)
 VALUES
     (1, 1),
     (2, 2),
-    (3, 3),
-    (4, 4),
-    (5, 5),
-    (6, 6);
+    (2, 1),
+    (3, 4),
+    (3, 4),
+    (7, 1),
+    (8, 2),
+    (9, 1),
+    (10, 4);
 
 -- pass admin: Patoter0
 -- pass los demas: Patoter1

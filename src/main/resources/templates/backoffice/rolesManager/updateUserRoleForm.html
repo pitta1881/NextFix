@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="~{fragments/head :: head}"></head>
+
+<body class="container">
+<header th:replace="~{fragments/header :: header}"></header>
+
+<form th:action="@{/backoffice/rolesManager/updateUserRole/{id}(id=${user.id})}" method="post">
+    <input type="hidden" name="_method" value="put">
+
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" class="form-control" id="username" name="username" th:value="${user.username}" required disabled>
+    </div>
+
+    <div class="form-group">
+        <label for="role">Role:</label>
+        <select class="form-control" id="role" name="role" required onchange="toggleInputs()">
+            <option value="ROLE_ADMIN" th:selected="${user.role == 'ROLE_ADMIN'}">ROLE_ADMIN</option>
+            <option value="ROLE_READ" th:selected="${user.role == 'ROLE_READ'}">ROLE_READ</option>
+            <option value="ROLE_DIRECTOR" th:selected="${user.role == 'ROLE_DIRECTOR'}">ROLE_DIRECTOR</option>
+        </select>
+    </div>
+
+    <!-- Inputs adicionales para ROLE_DIRECTOR -->
+    <div class="form-group" id="nationalityGroup" style="display: none;">
+        <label for="nationality">Nationality:</label>
+        <input type="text" class="form-control" id="nationality" name="nationality" required>
+    </div>
+    <div class="form-group">
+        <label for="birthdate">Birthdate:</label>
+        <input type="date" class="form-control" id="birthdate" name="birthdate" min="1970-01-01" max="3000-12-31" required>
+    </div>
+    <div class="form-group" id="emailGroup" style="display: none;">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+    </div>
+
+    <br>
+
+    <button type="submit" class="btn btn-primary">Update User</button>
+</form>
+
+<!-- Script para mostrar/ocultar inputs adicionales cuando se selecciona ROL_DIRECTOR -->
+<script th:inline="javascript">
+    function toggleInputs() {
+        let role = document.getElementById("role").value;
+        let nationalityGroup = document.getElementById("nationalityGroup");
+        let emailGroup = document.getElementById("emailGroup");
+
+        if (role === "ROLE_DIRECTOR") {
+            nationalityGroup.style.display = "block";
+            emailGroup.style.display = "block";
+            document.getElementById("nationality").required = true;
+            document.getElementById("birthdate").required = true;
+            document.getElementById("email").required = true;
+        } else {
+            nationalityGroup.style.display = "none";
+            emailGroup.style.display = "none";
+            document.getElementById("nationality").required = false;
+            document.getElementById("birthdate").required = false;
+            document.getElementById("email").required = false;
+        }
+    }
+
+    window.onload = function() {// Verificar el rol seleccionado al cargar la página
+        toggleInputs();
+    }
+</script>
+
+<a th:href="@{/home/home}" class="btn btn-primary">Back to Home</a>
+<footer th:insert="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

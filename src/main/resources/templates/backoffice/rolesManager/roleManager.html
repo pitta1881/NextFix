@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="~{fragments/head :: head}"></head>
+
+<body class="container">
+<header th:replace="~{fragments/header :: header}"></header>
+
+<h2 class="mb-4">Panel - Roles Manager (Only <b>ADMIN</b>)</h2>
+
+<table class="table table-bordered">
+
+    AUTHENTICATED USER:
+    <div sec:authentication="principal.username"></div>
+    <br>
+    ROLES AUTHENTICATED USER:
+    <div sec:authentication="principal.authorities"></div>
+    <br>
+
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Role</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Email Director</th>
+        <th sec:authorize="hasAuthority('ROL_ADMIN')">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.role}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.surname}"></td>
+        <td th:text="${user.director?.email}"></td><!--el ? ya que puede llegar nulo-->
+
+        <!-- Botones de eliminar y actualizar usuario -->
+        <td sec:authorize="hasAuthority('ROLE_ADMIN')">
+            <button th:onclick="'deleteUserConfirmation(\'' + ${user.id} + '\');'" class="btn btn-danger">Delete</button>
+            <a th:href="@{/backoffice/rolesManager/updateUserRole/{id}(id=${user.id})}" class="btn btn-warning">Update</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<script>
+    function deleteUserConfirmation(id) {
+        Swal.fire({
+            title: '¿Are you sure?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Delete',
+            cancelButtonText: 'Cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                location.href = '/backoffice/rolesManager/deleteUser/' + id;
+            }
+        });
+    }
+</script>
+
+
+
+<footer th:insert="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

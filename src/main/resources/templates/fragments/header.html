@@ -24,6 +24,7 @@
                 <div sec:authentication="principal.username"></div>
                 <div sec:authentication="principal.authorities"></div>
             </div>
+            <a sec:authorize="hasAuthority('ROLE_ADMIN')" th:href="@{/backoffice/rolesManager}" class="btn btn-danger">Roles Manager (Panel Admin)</a>
         </div>
     </nav>
 </header>

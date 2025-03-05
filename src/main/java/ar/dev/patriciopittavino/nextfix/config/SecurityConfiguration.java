@@ -25,6 +25,7 @@ public class SecurityConfiguration {
                 .userDetailsService(userCustomService)
                 .authorizeHttpRequests(request -> request
                         .requestMatchers("/", "/register").permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/backoffice")).hasAuthority("ROLE_ADMIN")
                         .requestMatchers(toH2Console()).permitAll()
                         .anyRequest().authenticated()
                 )
