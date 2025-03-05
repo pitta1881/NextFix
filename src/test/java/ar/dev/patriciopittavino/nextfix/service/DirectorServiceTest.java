@@ -1,5 +1,6 @@
 package ar.dev.patriciopittavino.nextfix.service;
 
+import ar.dev.patriciopittavino.nextfix.BaseTest;
 import ar.dev.patriciopittavino.nextfix.model.Director;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @RequiredArgsConstructor(onConstructor_ = @__(@Autowired))
-class DirectorServiceTest {
+class DirectorServiceTest extends BaseTest {
 
     private final DirectorService directorService;
     private Director savedDirector;

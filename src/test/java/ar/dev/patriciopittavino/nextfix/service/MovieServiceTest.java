@@ -1,5 +1,6 @@
 package ar.dev.patriciopittavino.nextfix.service;
 
+import ar.dev.patriciopittavino.nextfix.BaseTest;
 import ar.dev.patriciopittavino.nextfix.model.Director;
 import ar.dev.patriciopittavino.nextfix.model.Movie;
 import ar.dev.patriciopittavino.nextfix.model.Platform;
@@ -18,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @RequiredArgsConstructor(onConstructor_ = @__(@Autowired))
-public class MovieServiceTest {
+public class MovieServiceTest extends BaseTest {
 
     private final MovieService movieService;
     private final DirectorService directorService;

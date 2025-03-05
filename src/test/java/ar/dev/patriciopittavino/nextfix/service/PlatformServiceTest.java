@@ -1,5 +1,6 @@
 package ar.dev.patriciopittavino.nextfix.service;
 
+import ar.dev.patriciopittavino.nextfix.BaseTest;
 import ar.dev.patriciopittavino.nextfix.model.Platform;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @RequiredArgsConstructor(onConstructor_ = @__(@Autowired))
-public class PlatformServiceTest {
+public class PlatformServiceTest extends BaseTest {
 
     private final PlatformService platformService;
     private Platform savedPlatform;
